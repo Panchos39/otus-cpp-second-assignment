@@ -60,6 +60,8 @@ ip_address::ip_address(const std::string &ipv4Str, char d)
 	_hash_value = ipv4;
             
 }
+
+
 auto& ip_address::data() const { return this->_ip4_data; }
 auto& ip_address::data() { return this->_ip4_data; }
 auto& ip_address::hash() const { return this->_hash_value; }
