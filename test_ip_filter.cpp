@@ -22,9 +22,9 @@ class TestIpFilter_1 : public ::testing::Test
 protected:
 	void SetUp()
 	{
-
+		ip_pool.reserve(12);
 		for (auto ip_str : ip_strings){
-			ip_pool.push_back(ip_address(ip_str, '.'));
+			ip_pool.emplace_back(ip_str, '.');
 		}
 
 		filtered_pool = filter(ip_pool, 66);
@@ -41,8 +41,9 @@ class TestIpFilter_2 : public ::testing::Test
 protected:
 	void SetUp()
 	{
+		ip_pool.reserve(12);
 		for (auto ip_str : ip_strings){
-			ip_pool.push_back(ip_address(ip_str, '.'));
+			ip_pool.emplace_back(ip_str, '.');
 		}
 
 		filtered_pool = filter(ip_pool, 66, 249);
@@ -58,8 +59,9 @@ class TestIpFilter_3 : public ::testing::Test
 protected:
 	void SetUp()
 	{
+		ip_pool.reserve(12);
 		for (auto ip_str : ip_strings){
-			ip_pool.push_back(ip_address(ip_str, '.'));
+			ip_pool.emplace_back(ip_str, '.');
 		}
 
 		filtered_pool = filter_any(ip_pool, 1);
