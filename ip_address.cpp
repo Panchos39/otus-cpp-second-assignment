@@ -1,11 +1,5 @@
 #include "ip_address.h"
 
-#include "version.h"
-
-int version() {
-	return PROJECT_VERSION_PATCH;
-}
-
 
 ip_address::ip_address(std::initializer_list<std::uint8_t> il)
 {
@@ -90,11 +84,7 @@ bool operator>=(const ip_address& lhs, const ip_address& rhs){
 bool operator==(const ip_address& lhs, const ip_address& rhs){
     return  lhs.hash() == rhs.hash();
 }
-/*
-bool operator==(const ip_address& lhs, const ip_address& rhs){
-    return  lhs.hash() == rhs.hash();
-}
-*/
+
 
 std::string ip_address::_to_string(){
     std::string ipv4_str;
@@ -108,7 +98,7 @@ std::string ip_address::_to_string(){
 
 
 
-std::vector<ip_address> filter(std::vector<ip_address> pool, 
+std::vector<ip_address> filter(const std::vector<ip_address>& pool,
                             int octet_1, int octet_2, 
                             int octet_3, int octet_4) {
     std::vector<ip_address> filtered_pool;
@@ -140,7 +130,7 @@ std::vector<ip_address> filter(std::vector<ip_address> pool,
     return filtered_pool;
 }
 
-std::vector<ip_address> filter_any(std::vector<ip_address> pool, int octet) {
+std::vector<ip_address> filter_any(const std::vector<ip_address>& pool, int octet) {
     std::vector<ip_address> filtered_pool;
     for (auto ip : pool) {
         if ((ip[0] == octet) || (ip[1] == octet) ||

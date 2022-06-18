@@ -21,18 +21,20 @@ std::vector<std::string> split(const std::string &str, char d)
 
     return r;
 }
+std::string current_ip;
 
 int main(int, char**)
 {
+
     try
     {
         std::vector<ip_address> ip_pool;
         ip_pool.reserve(max_elements);
-
         for(std::string line; std::getline(std::cin, line);)
         {
             std::vector<std::string> v = split(line, '\t');
-            ip_pool.emplace_back(v.at(0), '.');
+            current_ip = v.at(0);
+            ip_pool.emplace_back(current_ip, '.');
         }
         std::sort (ip_pool.rbegin(), ip_pool.rend());
         for (auto ip : ip_pool) std::cout << ip << std::endl;
@@ -49,7 +51,9 @@ int main(int, char**)
     }
     catch(const std::exception &e)
     {
+        std::cerr << current_ip << "  is not valid ip address" << std::endl;
         std::cerr << e.what() << std::endl;
+
     }
 
     return 0;

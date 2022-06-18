@@ -9,9 +9,6 @@
 #include <algorithm>
 #include <fstream>
 
-int version();
-
-
 class ip_address
 {
     public:
@@ -41,8 +38,8 @@ class ip_address
         std::string _to_string();       
 };
 
-std::vector<ip_address> filter(std::vector<ip_address> pool, 
+std::vector<ip_address> filter(const std::vector<ip_address>& pool,
                             int octet_1, int octet_2=-1, 
                             int octet_3=-1, int octet_4=-1);
 
-std::vector<ip_address> filter_any(std::vector<ip_address> pool, int octet);
+std::vector<ip_address> filter_any(const std::vector<ip_address>& pool, int octet);
