@@ -1,7 +1,6 @@
 #include <iostream>
 #include "ip_address.h"
 
-const int max_elements = 1000;
 
 std::vector<std::string> split(const std::string &str, char d)
 {
@@ -32,7 +31,7 @@ int main(int, char**)
         ip_pool.reserve(max_elements);
         for(std::string line; std::getline(std::cin, line);)
         {
-            std::vector<std::string> v = split(line, '\t');
+            auto v = split(line, '\t');
             current_ip = v.at(0);
             ip_pool.emplace_back(current_ip, '.');
         }

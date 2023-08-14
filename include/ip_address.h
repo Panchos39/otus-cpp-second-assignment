@@ -9,6 +9,8 @@
 #include <algorithm>
 #include <fstream>
 
+inline constexpr int max_elements = 1000;
+
 class ip_address
 {
     public:

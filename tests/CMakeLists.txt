@@ -3,7 +3,7 @@ if(WITH_GOOGLE_TEST)
     add_executable(test_ip_filter test_ip_filter.cpp)
     
     set_target_properties(test_ip_filter PROPERTIES
-        CXX_STANDARD 14
+        CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
     )
 

@@ -16,7 +16,7 @@ add_executable(ip_filter src/ip_filter.cpp)
 add_library(ip_address src/ip_address.cpp)
 
 set_target_properties(ip_address ip_filter PROPERTIES
-    CXX_STANDARD 14
+    CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
 )
 
